@@ -37,7 +37,6 @@ def obfuscate_file(input_file):
         with open(output_file, "w") as f:
             f.write(obfuscated_code)
 
-        print(f"Obfuscated file '{output_file}' created! Run it with 'python {output_file}'.")
     except FileNotFoundError:
         print(f"Error: Input file '{input_file}' not found.")
     except Exception as e:
