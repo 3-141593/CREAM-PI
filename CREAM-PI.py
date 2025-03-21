@@ -1,1 +1,2 @@
-ping google.com
+import os
+os.system('ping google.com')
