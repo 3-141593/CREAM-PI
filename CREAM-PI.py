@@ -1,1 +1,1 @@
-print("Hello World")
+ping google.com
