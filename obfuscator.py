@@ -1,5 +1,6 @@
 import base64
 import sys
+import os
 
 # Simple XOR cipher for an extra layer
 def xor(text, key=42):
@@ -13,7 +14,7 @@ def x(t, k=42):
 exec(x(base64.b64decode('{}').decode()))
 """
 
-def obfuscate_file(input_file, output_file="hidden.py"):
+def obfuscate_file(input_file):
     try:
         # Read the original code from the input file
         with open(input_file, "r") as f:
@@ -27,6 +28,10 @@ def obfuscate_file(input_file, output_file="hidden.py"):
 
         # Create the obfuscated script using the loader template
         obfuscated_code = loader_template.format(b64_encoded)
+
+        # Generate the output filename by appending "-encrypted" before the extension
+        base_name, ext = os.path.splitext(input_file)
+        output_file = f"{base_name}-encrypted{ext}"
 
         # Write to the output file
         with open(output_file, "w") as f:
