@@ -1,2 +1,2 @@
 # CREAM-PI
-shitposting at its finest
+run as sudo
