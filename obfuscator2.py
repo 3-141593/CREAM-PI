@@ -25,12 +25,17 @@ def obfuscate_file(input_file):
         b64_encoded = base64.b64encode(xor_encoded.encode()).decode()
         first_encrypted = loader_template.format(b64_encoded)
 
-        # Step 2: Add a few lines of dummy code and 100 empty lines
+        # Step 2: Add a few lines of dummy code that looks functional but doesn't execute
         dummy_lines = [
-            "print('System check initiated...')",
-            "print('Validating user input...')",
-            "print('Preparing encryption module...')"
-        ]  # 3 lines of meaningless code
+            "def initialize_system():",
+            "    config = {'mode': 'secure', 'level': 5}",
+            "    if False:  # This block never executes",
+            "        settings = config.get('mode')",
+            "        for i in range(config['level']):",
+            "            temp = i * 42",
+            "            settings += str(temp)"
+        ]  # 7 lines of realistic-looking but non-executing code
+        
         dummy_code = "\n".join(dummy_lines)
         
         # Add 100 empty lines
